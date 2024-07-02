@@ -1,0 +1,18 @@
+name: Release to Production
+
+on: push
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    container:
+      image: salesforce/salesforcedx
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+    - name: Install Plugins
+      run: |
+        sfdx update
+        sf plugins install @salesforce/sfdx-scanner
+        sf scanner run --format json --target force-app
+        
