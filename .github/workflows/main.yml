@@ -6,7 +6,7 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     container:
-      image: salesforce/cli:latest
+      image: salesforce/cli
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
