@@ -6,7 +6,7 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     container:
-      image: salesforce/salesforcedx
+      image: https://hub.docker.com/r/salesforce/cli
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
