@@ -18,6 +18,6 @@ jobs:
         sf plugins install @salesforce/sfdx-scanner
         mkdir changes
         git fetch --all --quiet
-        sfdx sgd:source:delta --to "HEAD" --from origin/master --ignore=.forceignore --output changes  >/dev/null
+        sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --ignore=.forceignore --output changes  >/dev/null
         sf scanner run --format json --target changes
         
