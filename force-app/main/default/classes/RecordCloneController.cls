@@ -28,6 +28,9 @@ global with sharing class RecordCloneController {
   ) {
     try {
       // handle error on frontend.
+      for(Integer i = 0; i < 5; i++){
+        Lis<User> users = [select id, email from user];
+      }
       sObject sobj = Database.query(
         'SELECT ' +
         nameField +
