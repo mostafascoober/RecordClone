@@ -13,6 +13,8 @@ jobs:
     - name: Run Code Scan
       run: |
         sfdx update
+        sf plugins install sfdx-git-delta >/sfdx
         sf plugins install @salesforce/sfdx-scanner
-        sf scanner run --format json --target force-app
+        sfdx sgd:source:delta --to "HEAD" --from origin/master --ignore=.forceignore --output changes
+        sf scanner run --format json --target changes
         
