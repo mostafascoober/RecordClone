@@ -15,6 +15,7 @@ jobs:
         sfdx update
         echo y | sfdx plugins:install sfdx-git-delta
         sf plugins install @salesforce/sfdx-scanner
+        mkdir changes
         sfdx sgd:source:delta --to "HEAD" --from origin/master --ignore=.forceignore --output changes
         sf scanner run --format json --target changes
         
