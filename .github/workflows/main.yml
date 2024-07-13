@@ -14,10 +14,7 @@ jobs:
       run: |
         git config --global safe.directory '*'
         sfdx update
-        echo y | sfdx plugins:install sfdx-git-delta
         sf plugins install @salesforce/sfdx-scanner
-        mkdir changes
         git fetch --all --quiet
-        sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --ignore=.forceignore --output changes  >/dev/null
-        sf scanner run --format json --target changes
+        sf scanner run --format json --target force-app
         

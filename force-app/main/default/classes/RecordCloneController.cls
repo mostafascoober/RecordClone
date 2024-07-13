@@ -30,7 +30,6 @@ global with sharing class RecordCloneController {
       // handle error on frontend.
       for(Integer i = 0; i < 5; i++){
         Lis<User> users = [select id, email from user];
-        update users;
       }
       sObject sobj = Database.query(
         'SELECT ' +
